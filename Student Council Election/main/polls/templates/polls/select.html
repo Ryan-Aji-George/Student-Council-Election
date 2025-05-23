@@ -1,0 +1,112 @@
+{% extends "polls/base.html" %}
+{% block content %}
+{% load static %}
+
+
+<main>
+    <article>
+
+
+<br><br><br><br><br>
+      <section class="tags" aria-labelledby="tag-label">
+        <div class="container">
+
+          <img style="z-index: -1;" src="{% static 'polls/images/shadow-1.svg' %}" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+          
+
+          <h2 class="headline headline-2 section-title" id="tag-label">
+            <span class="span" style="font-size: 30px;">Select a post</span>
+          </h2>
+
+
+
+<br>
+<a href="{% url 'polls:general_vote'%}"><li>
+  <button class="card tag-btn">
+
+    
+    <p class="btn-text"><b>VOTE FOR ALL</b></p>
+  </button>
+</li></a><br><br>
+          <ul class="grid-list">
+
+
+
+            {% for post in latest_post_list1 %}
+            <a href="{% url 'polls:detail' post.id %}">
+            <li>
+              <button class="card tag-btn">
+
+
+                <p class="btn-text">{{post.post_title}}</p>
+              </button>
+            </li>
+
+            </a>
+                {% endfor %}
+
+
+
+          </ul>
+
+            <br>
+              <a href="{% url 'polls:vote_all'%}">
+            <li>
+              <button class="card tag-btn">
+
+
+                <p class="btn-text"> Vote for all of the above posts</p>
+              </button>
+            </li>
+
+            </a>
+
+
+<br><br>
+            <ul class="grid-list">
+
+            {% for post in latest_post_list2 %}
+            <a href="{% url 'polls:detail' post.id %}">
+            <li>
+              <button class="card tag-btn">
+
+
+                <p class="btn-text">{{post.post_title}}</p>
+              </button>
+            </li>
+
+            </a>
+                {% endfor %}
+
+
+          </ul>
+
+            {% for house in available_houses %}<br>
+            <a href="{% url 'polls:house_vote' house %}">
+            <li>
+              <button class="card tag-btn">
+
+
+                <p class="btn-text"> Vote for all captains of {{ house }} House</p>
+              </button>
+            </li>
+
+            </a>
+{% endfor %}
+
+        </div>
+      </section>
+<br><br><br><br>
+
+<img src="{% static 'polls/images/shadow-2.svg' %}" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+
+
+
+
+    </article>
+  </main>
+
+
+
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% extends "polls/base.html" %}
+{% block content %}
+{% load static %}
+
+
+<main>
+    <article>
+
+<img src="{% static 'polls/images/shadow-1.svg' %}" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+
+      <section class="section feature" aria-label="feature" id="featured">
+        <div class="container">
+
+ <h2 class="headline headline-2 section-title">
+            <span class="span">Results</span>
+          </h2>
+
+
+<style>
+        .feature-list li:nth-child(-n+2) { width: calc(100% - 15px); }
+</style>
+
+             <ul class="feature-list">
+
+            <li >
+              <div class="card feature-card" style="background-color: hsla(0, 0%, 100%, 0.5);">
+
+
+
+                <div class="card-content">
+
+
+
+
+{% for post_data in post_results %}
+    <h2 style="font-weight: 240; font-size:30px;">{{ post_data.post.post_title }}</h2>
+    <ul>
+        {% for candidate in post_data.candidates %}
+            <li {% if candidate == post_data.winner %} style="font-weight: bold;" {% endif %}>
+                {{ candidate.candidate_name }} - {{ candidate.votes }} votes
+            </li>
+
+        {% endfor %} <br>
+    </ul>
+{% endfor %}
+
+
+                </div>
+
+              </div>
+            </li>
+
+
+
+             </ul>
+
+
+
+
+
+
+            <a href="{% url 'polls:download_results' %}" class="btn btn-primary" style="margin-top: 20px;">
+    Download Results as PDF
+</a>
+
+<a href="{% url 'polls:download_results_excel' %}" class="btn btn-primary" style="margin-top: 20px;">
+    Download Results as Excel File
+</a>
+
+        </div>
+      </section>
+    </article>
+</main>
+
+
+
+{% endblock content %}

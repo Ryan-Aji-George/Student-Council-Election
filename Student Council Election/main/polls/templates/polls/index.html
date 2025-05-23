@@ -1,0 +1,129 @@
+{% extends "polls/base.html" %}
+{% block content %}
+{% load static %}
+
+    {%  if latest_post_list %}
+
+
+<main>
+    <article>
+
+
+
+      <section class="hero" id="home" aria-label="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+  
+
+            <h1 class="headline headline-1 section-title" style="font-size: 50px;">
+               <span class="span">AC School</span> Student Council Election
+            </h1>
+
+            <p class="hero-text">
+
+                  <a href="{% url 'polls:general_vote' %}" class="btn btn-secondary" style="cursor:default; padding: 8px 30px; position: absolute;
+  ">
+            <input class="span" type="submit" value="Vote →" style="width: 55px; font-size: 15px; cursor: pointer; height:20px; "></a>
+            </p>
+
+          
+
+          </div>
+          
+          <div class="hero-banner">
+
+            <img src="{% static 'polls/images/logo.png' %}" style="height: 330px;" alt="A" class="w-100">
+
+            <img src="{% static 'polls/images/pattern-2.svg' %}" width="27" height="26" alt="shape" class="shape shape-1">
+
+            <img src="{% static 'polls/images/pattern-3.svg' %}" width="27" height="26" alt="shape" class="shape shape-2">
+
+          </div>
+
+          <img style="z-index: -1;" src="{% static 'polls/images/shadow-1.svg' %}" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+          <img style="z-index: -1;" src="{% static 'polls/images/shadow-2.svg' %}" width="500" height="500" alt="" class="hero-bg hero-bg-2">
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+
+
+<img src="{% static 'polls/images/shadow-2.svg' %}" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+
+
+
+
+    </article>
+  </main>
+
+
+
+<main style="position: fixed;
+   left: 0;
+   bottom: 0;width: 100%;">
+    <article>
+
+      <section class="section feature" aria-label="feature" id="featured">
+
+
+          <div class="container">
+<style>
+        .feature-list li:nth-child(-n+2) { width: calc(100% - 15px); }
+</style>
+             <ul class="feature-list" style="" >
+            <li >
+              <div class="feature-card" style="
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.685) 0, rgba(255, 255, 255, 0.385) 100%);
+     z-index:2; " >
+
+ <div class="card-wrapper">
+                    <div class="card-tag" style="gap:8px; margin-top:-20px; margin-right:auto;margin-left:auto;">
+                      <a href="/select"  class="span hover-2">Select Post</a>|
+
+                      <a href="/admin"  class="span hover-2">Admin </a>|
+
+                        <a href="/results"  class="span hover-2">Results </a>|
+                        <a href="/download_voters_page"  class="span hover-2">Voters List</a>|
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}"  class="span hover-2">Logout </a>
+                        {% else %}
+<a href="/login" class="span hover-2">Login </a>
+          {% endif %}
+                    </div>
+                </div>
+              </div>
+
+            </li>
+             </ul>
+          </div>
+
+
+      </section>
+    </article>
+</main>
+
+
+{% else %}<br><br><br><br><br><br>
+  <p>No polls available</p>
+{% endif %}
+
+{% endblock content %}

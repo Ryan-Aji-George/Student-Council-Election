@@ -1,0 +1,35 @@
+{% extends "polls/base.html" %}
+{% block content %}
+{% load static %}
+
+  <main>
+    <article>
+
+      <!--
+        - #FEATURED POST
+      -->
+
+
+
+      <section class="section feature" aria-label="feature" id="featured">
+        <div class="container">
+<br><br>
+
+            <h1 style=" font-weight: 240; font-size:40px;">Your Vote Has Been Successfully Registered</h1>
+
+
+            <button onclick="window.history.back()" class="navbar-link">Vote for the same posts →</button>
+            <a href="{% url 'polls:select' %}" class="navbar-link">Select another post →</a>
+        </div>
+
+        <img src="{% static 'polls/images/shadow-2.svg' %}" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+{% endblock content %}
