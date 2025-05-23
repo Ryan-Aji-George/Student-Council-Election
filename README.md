@@ -1,6 +1,4 @@
-# 🗳️ Student Council Election
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ # 🗳️ Student Council Election
 
 
 A comprehensive web-based platform that facilitates fair and transparent school council elections.
